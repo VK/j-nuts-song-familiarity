@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Familiarity Calculator</title>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4">J🌰 Song Familiarity Calculator</h1>
+
+        <div id="instructions" class="mb-4">
+            <h2>Data Entry Instructions:</h2>
+            <p><strong>Members Data:</strong></p>
+            <ul>
+                <li>Each member's data should be entered on a separate line.</li>
+                <li>Use the format: <code>&lt;Member Name&gt; &lt;Term Year&gt;</code>, separated by a tab.</li>
+                <li>Term representation should be in the format "WS" or "SS" followed by the year (e.g., WS 2023, SS 2021).</li>
+                <li>Example:</li>
+                <pre>
+                    Member 1    WS 2023
+                    Member 2    SS 2021
+                </pre>
+            </ul>
+            <p><strong>Songs Data:</strong></p>
+            <ul>
+                <li>Each song's data should be entered on a separate line.</li>
+                <li>Use the format: <code>&lt;Song Name&gt; &lt;First Performed Year&gt; &lt;Last Performed Year&gt;</code>, separated by a tab.</li>
+                <li>Term representation should be in the format "WS" or "SS" followed by the year (e.g., WS 2023, SS 2021).</li>
+                <li>Example:</li>
+                <pre>
+                    Song 1    WS 2019    WS 2023
+                    Song 2    SS 2021    SS 2021
+                </pre>
+            </ul>
+            <p><strong>Paste Data:</strong></p>
+            <ul>
+                <li>Once your data is formatted correctly, paste it into the textarea below.</li>
+                <li>Ensure the data is separated by tabs (the default delimiter).</li>
+                <li>Click the "Process Data" button to calculate familiarity percentages.</li>
+            </ul>
+        </div>
+
+        <div id="dataEntry" class="mt-4">
+            <h2>Data Entry</h2>
+            <textarea id="pasteData" class="form-control" rows="5" placeholder="Paste tab-separated data here"></textarea>
+            <button id="processButton" class="btn btn-primary mt-3">Process Data</button>
+        </div>
+
+        <div id="sortOptions" class="mt-4">
+            <h2>Sort Options</h2>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sortOption" id="sortAlphabetically" value="alphabetical" checked>
+                <label class="form-check-label" for="sortAlphabetically">
+                    Sort Alphabetically
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sortOption" id="sortByYear" value="year">
+                <label class="form-check-label" for="sortByYear">
+                    Sort By Year
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sortOption" id="sortByFamiliarity" value="familiarity">
+                <label class="form-check-label" for="sortByFamiliarity">
+                    Sort By Familiarity
+                </label>
+            </div>
+        </div>        
+
+
+        <div id="result"  class="mt-4">
+            <h2>Result</h2>
+
+            <!-- Calculation result will be displayed here -->
+            <table id="resultTable" class="table table-sm">
+                <!-- Result table will be dynamically inserted here -->
+            </table>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
