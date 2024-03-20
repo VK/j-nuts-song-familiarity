@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const resultData = calculateFamiliarity(membersData, songsData);
         // Populate result table
         populateResultTable(resultTable, resultData);
+
+        return resultData;
     }
 
     // Attach processData function to the button click event
@@ -118,4 +120,37 @@ document.addEventListener("DOMContentLoaded", function () {
             return "bg-success"; // Green
         }
     }
+
+
+
+    // Function to convert data to CSV format
+    function convertToCSV(data) {
+        const header = ["Song", "Last Performed", "Familiarity Percentage"];
+        const filteredData = data.map(item => [
+            item.song.replace(/[\r\n,]/g, ""),
+            item.lastPerformedDate.replace(/[\r\n,]/g, ""),
+            item.percentage + "%"
+        ]);
+
+        const csvContent = header.join(",") + "\n" +
+        filteredData.map(item => Object.values(item).join(",")).join("\n");
+        return "data:text/csv;charset=utf-8," + csvContent;
+    }
+
+
+    // Attach event listener to download button
+    document.getElementById("downloadCsvBtn").addEventListener("click", function () {
+        const resultData = processData();
+        const csvContent = convertToCSV(resultData);
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", "result.csv");
+        document.body.appendChild(link); // Required for Firefox
+        link.click();
+    });
+
+
+
+
 });

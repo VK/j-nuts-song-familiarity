@@ -6,7 +6,6 @@
     <title>Song Familiarity Calculator</title>
     <!-- Link Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -48,6 +47,7 @@
             <h2>Data Entry</h2>
             <textarea id="pasteData" class="form-control" rows="5" placeholder="Paste tab-separated data here"></textarea>
             <button id="processButton" class="btn btn-primary mt-3">Process Data</button>
+            <button id="downloadCsvBtn" class="btn btn-primary mt-3">Download CSV</button>
         </div>
 
         <div id="sortOptions" class="mt-4">
@@ -80,6 +80,8 @@
             <table id="resultTable" class="table table-sm">
                 <!-- Result table will be dynamically inserted here -->
             </table>
+
+            
         </div>
     </div>
 
